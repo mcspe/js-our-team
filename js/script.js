@@ -3,51 +3,39 @@ const ourTeam = [
     firstName:'Wayne',
     lastName:'Barnett',
     role:'Founder & CEO',
-    picture: new Image()
+    picture: '../img/wayne-barnett-founder-ceo.jpg'
   },
   {
     firstName:'Angela',
     lastName:'Caroll',
     role:'Chief Editor',
-    picture: new Image()
+    picture: '../img/angela-caroll-chief-editor.jpg'
   },
   {
     firstName:'Walter',
     lastName:'Gordon',
     role:'Office Manager',
-    picture: new Image()
+    picture: '../img/walter-gordon-office-manager.jpg'
   },
   {
     firstName:'Angela',
     lastName:'Lopez',
     role:'Social Media Manager',
-    picture: new Image()
+    picture: '../img/angela-lopez-social-media-manager.jpg'
   },
   {
     firstName:'Scott',
     lastName:'Estrada',
     role:'Developer',
-    picture: new Image()
+    picture: '../img/scott-estrada-developer.jpg'
   },
   {
     firstName:'Barbara',
     lastName:'Ramos',
     role:'Graphic Designer',
-    picture: new Image()
+    picture: '../img/barbara-ramos-graphic-designer.jpg'
   }
 ];
-const imgSrc = [
-  '../img/wayne-barnett-founder-ceo.jpg',
-  '../img/angela-caroll-chief-editor.jpg',
-  '../img/walter-gordon-office-manager.jpg',
-  '../img/angela-lopez-social-media-manager.jpg',
-  '../img/scott-estrada-developer.jpg',
-  '../img/barbara-ramos-graphic-designer.jpg'
-]
-for (let i in ourTeam) {
-  ourTeam[i].picture.src = imgSrc[i];
-  //console.log(ourTeam[i]);
-}
 
 //console.log(ourTeam);
 const cardContainer = document.querySelector('.card-container');
@@ -61,7 +49,9 @@ function printCard(member) {
   cardDiv.className = 'card';
   const cardImg = document.createElement('div');
   cardImg.className = 'card-img';
-  cardImg.append(member.picture);
+  const img = new Image();
+  img.src = member.picture;
+  cardImg.append(img);
   const name = document.createElement('h3');
   name.innerHTML = `${member.firstName} ${member.lastName}`
   const role = document.createElement('p');
