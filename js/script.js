@@ -46,6 +46,26 @@ const imgSrc = [
 ]
 for (let i in ourTeam) {
   ourTeam[i].picture.src = imgSrc[i];
+  //console.log(ourTeam[i]);
 }
 
-console.log(ourTeam);
+//console.log(ourTeam);
+const cardContainer = document.querySelector('.card-container');
+
+for (const member of ourTeam) {
+  cardContainer.append(printCard(member));
+}
+
+function printCard(member) {
+  const cardDiv = document.createElement('div');
+  cardDiv.className = 'card';
+  const cardImg = document.createElement('div');
+  cardImg.className = 'card-img';
+  cardImg.append(member.picture);
+  const name = document.createElement('h3');
+  name.innerHTML = `${member.firstName} ${member.lastName}`
+  const role = document.createElement('p');
+  role.innerHTML = `${member.role}`
+  cardDiv.append(cardImg, name, role);
+  return cardDiv;
+}
